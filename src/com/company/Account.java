@@ -1,7 +1,7 @@
 package com.company;
 
 
-
+//This Class Manages Account Functions
 public class Account {
     String first_name;
     String last_name;
