@@ -8,7 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        String p1 = "Hello";
+        String p1 = "Hello\nbye!";
+        int age = 5;
+        System.out.println(age);
         print(p1);
     }
 }
