@@ -15,4 +15,28 @@ public class Account {
         System.out.println("Balance" + balance + " PKR\n" );
     }
 
+    public void makeWithdrawal(){
+        System.out.println("how are ya?");
+    }
+
+    public float getBalance(){
+        return balance;
+    }
+
+    public String getFirst_name(){
+        return first_name;
+    }
+
+    public String getLast_name(){
+        return last_name;
+    }
+
+    public int getPhone_num(){
+        return account_num;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+
 }

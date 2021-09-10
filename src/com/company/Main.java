@@ -12,5 +12,13 @@ public class Main {
         int age = 5;
         System.out.println(age);
         print(p1);
+
+        Account sav = new Saving();
+        sav.makeWithdrawal();
+
+        Account check = new Checking();
+        check.makeWithdrawal();
+
+
     }
 }
