@@ -13,12 +13,5 @@ public class Main {
         System.out.println(age);
         print(p1);
 
-        Account sav = new Saving();
-        sav.makeWithdrawal();
-
-        Account check = new Checking();
-        check.makeWithdrawal();
-
-
     }
 }
