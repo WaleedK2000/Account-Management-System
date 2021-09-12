@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.*;
 
 //This Class Manages Account Functions
 public class Account {
@@ -7,11 +7,13 @@ public class Account {
     String last_name;
     String phone_num;
     String address;
+    Date acc_created;
     int account_num;
     float balance;
     boolean isSaving;
 
     public Account (String first, String last, String ph_num,  String address, int acc_num, float bal){
+        acc_created = new Date(2021,9,12);
         setAll(first, last, ph_num, address, acc_num, bal);
     }
 
@@ -29,7 +31,7 @@ public class Account {
     }
     public void checkBalance(){
         System.out.println("Account Holder: "+first_name + ' ' + last_name + '\n');
-        System.out.println("Balance" + balance + " PKR\n" );
+        System.out.println("Balance: " + balance + " PKR\n" );
     }
 
     protected void makeWithdrawal(float with_amt){
