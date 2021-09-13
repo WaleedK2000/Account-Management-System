@@ -62,7 +62,21 @@ public class Main {
         }
         else{
             System.out.println("--- Valid Account --- \n");
-            System.out.println("");
+            Account acc = account_list.get(acc_num);
+            System.out.println("1 ... Make Deposit");
+            System.out.println("2 ... Make Withdrawal");
+            System.out.println("3 ... Transfer Money");
+            System.out.println("4 ... Calculate Zakat");
+            System.out.println("5 ... Display Deduction");
+
+            Scanner red = new Scanner(System.in);
+            int choice = red.nextInt();
+
+            while(choice > 5 || choice< 1 ){
+                System.out.println("Try Again! ");
+                choice = red.nextInt();
+            }
+
         }
 
     }
