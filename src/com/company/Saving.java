@@ -24,6 +24,12 @@ public class Saving extends Account {
 
     public void makeWithdrawal(){
        float val = getTransactionVal("Withdrawal");
+
+       if(val > balance){
+           System.out.println("Insufficient Balance ... Exiting");
+           return;
+       }
+
        makeWithdrawal(val);
     }
 
@@ -37,9 +43,10 @@ public class Saving extends Account {
         System.out.println("Calculated Zakat : " + cal_zakat);
     }
 
-    public void chargeDeductions(){
-        balance -= calculateZakat();
-        balance += calculateIntrest(balance);
+    public float chargeDeductions(){
+        float ret = calculateIntrest(balance) - calculateZakat();
+       balance += ret;
+       return ret;
     }
 
     public void displayDetails(){

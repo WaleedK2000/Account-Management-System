@@ -15,12 +15,13 @@ public class Main {
             System.out.println("1 ... Open a New Account");
             System.out.println("2 ... Login to an Account");
             System.out.println("3 ... Change Interest Rate");
+            System.out.println("4 ... Charge Tax and Zakat");
 
 
             Scanner scan = new Scanner(System.in);
             int input = scan.nextInt();
 
-            while(input <0 || input > 3){
+            while(input <0 || input > 4){
                 System.out.println("Invalid Input ... Please Try again");
                 input = scan.nextInt();
             }
@@ -41,11 +42,25 @@ public class Main {
                 case 3:
                     modifyInterestRate();
                     break;
+                case 4:
+                    chargeDeductibles();
+                    break;
             }
         }
 
 
     }
+
+private static void   chargeDeductibles(){
+        float subtotal = 0;
+        int s = account_list.size();
+    for (Account account : account_list) {
+        subtotal += account.chargeDeductions();
+    }
+
+    System.out.println("Total Collected" + subtotal);
+
+}
 
     private static void loginAccount(){
 
@@ -61,9 +76,11 @@ public class Main {
             return;
         }
         else{
+
+            Account acc = account_list.get(acc_num);
             boolean exit = false;
 
-            while(exit) {
+            while(!exit) {
                 System.out.println("--- Valid Account --- \n");
 
                 System.out.println("0 ... Back");
@@ -72,6 +89,9 @@ public class Main {
                 System.out.println("3 ... Transfer Money");
                 System.out.println("4 ... Display Deduction");
                 System.out.println("5 ... Display Account Details");
+                System.out.println("6 ... Display Balance");
+
+
 
                 Scanner red = new Scanner(System.in);
                 int choice = red.nextInt();
@@ -81,7 +101,7 @@ public class Main {
                     choice = red.nextInt();
                 }
 
-                Account acc = account_list.get(acc_num);
+
 
                 switch (choice) {
                     case 0:
@@ -100,11 +120,30 @@ public class Main {
                         break;
                     case 5:
                         acc.displayDetails();
+                        break;
+                    case 6:
+                        acc.displayBalance();
+                        break;
                 }
 
             }
 
         }
+
+    }
+
+    private static void closeAccount(){
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Account Number To Close");
+        int acc_num = scan.nextInt() - 1;
+
+        while (acc_num > account_list.size() || acc_num < 0){
+            System.out.println("Invalid .. Try Again");
+            acc_num = scan.nextInt();
+        }
+
+        account_list.remove(acc_num);
 
     }
 
@@ -161,6 +200,7 @@ public class Main {
         String p1 = "Hello\nbye!";
         account_list = new LinkedList<Account>();
         account_list.add(new Checking("Waleed", "Kayani", "050132850", "Rawalpindi, Pakistan", 1, 100000));
+        account_list.add(new Saving("Waleed", "Kayani", "050132850", "Rawalpindi, Pakistan", 2, 100000));
 
         menu_A();
 

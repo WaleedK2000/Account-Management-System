@@ -14,6 +14,12 @@ public class Checking extends Account {
 
     public void makeWithdrawal(){
         float val = getTransactionVal("Withdrawal");
+
+        if (val > balance + 5000){
+            System.out.println("Insufficient Balance ... Exiting");
+            return;
+        }
+
         if( transactionsThisMonth() > 2 ){
             val += 10;
         }
@@ -44,8 +50,10 @@ public class Checking extends Account {
         return 0;
     }
 
-    public void chargeDeductions(){
-        balance -= calculateTax();
+    public float chargeDeductions(){
+        float ret = calculateTax();
+        balance -= ret;
+        return ret;
     }
 
     public void displayDetails(){

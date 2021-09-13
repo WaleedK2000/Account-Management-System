@@ -15,8 +15,8 @@ public class Account {
     public void displayDetails(){
         System.out.println("Name: " + first_name + " " + last_name);
         System.out.println("Address: " + address);
-        System.out.println(account_num);
-        System.out.println(balance);
+        System.out.println("Account num: "+account_num);
+        System.out.println("Balance " + balance + " PKR");
     }
 
     public Account (String first, String last, String ph_num,  String address, int acc_num, float bal){
@@ -131,8 +131,13 @@ public class Account {
         return  scan.nextFloat();
     }
 
-    public void chargeDeductions(){
-
+    public float chargeDeductions(){
+        return 0;
     }
+        public void displayBalance(){
+            System.out.println("Account Holder: " + first_name + " " + last_name + " \n");
+            System.out.println("Balance: " + balance);
+        }
+
 
 }
