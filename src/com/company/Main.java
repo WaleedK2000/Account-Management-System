@@ -50,7 +50,20 @@ public class Main {
     private static void loginAccount(){
 
         System.out.println("Enter Account Number");
+        int a = account_list.size();
 
+        System.out.println("Enter Next Value");
+        Scanner scan = new Scanner(System.in);
+        int acc_num = scan.nextInt();
+
+        if(acc_num > a || acc_num < 1){
+            System.out.println("Invalid account num \n");
+            return;
+        }
+        else{
+            System.out.println("--- Valid Account --- \n");
+            System.out.println("");
+        }
 
     }
 
@@ -105,9 +118,6 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         String p1 = "Hello\nbye!";
-
-
-
         account_list = new LinkedList<Account>();
         account_list.add(new Checking("Waleed", "Kayani", "050132850", "Rawalpindi, Pakistan", 1, 100000));
 
