@@ -26,9 +26,7 @@ public class Account {
         this.balance = bal;
     }
 
-    public float allDetuctables(){
-        return 0;
-    }
+
     public void checkBalance(){
         System.out.println("Account Holder: "+first_name + ' ' + last_name + '\n');
         System.out.println("Balance: " + balance + " PKR\n" );
@@ -116,9 +114,7 @@ public class Account {
     }
 
     protected float getTransactionVal(String type){
-
         Scanner scan = new Scanner(System.in);
-
         System.out.println("\n _____________________________________ \n");
         System.out.println("Transaction Request \n");
         System.out.println("TYPE : ");
@@ -126,7 +122,9 @@ public class Account {
         //System.out.println("\n");
         System.out.println("Please Enter Desired Amount : ");
         return  scan.nextFloat();
+    }
 
+    public void chargeDeductions(){
 
     }
 

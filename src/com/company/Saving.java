@@ -21,9 +21,7 @@ public class Saving extends Account {
         }
     }
 
-    public float allDetuctables(){
-        return calculateZakat();
-    }
+
 
     public void makeWithdrawal(){
        float val = getTransactionVal("Withdrawal");
@@ -34,6 +32,16 @@ public class Saving extends Account {
         return rate * balance;
     }
 
+    public void displayDeduction(){
+        System.out.println("Account Holder " + first_name + " " + last_name);
+        float cal_zakat =calculateZakat();
+        System.out.println("Calculated Zakat : " + cal_zakat);
+    }
+
+    public void chargeDeductions(){
+        balance -= calculateZakat();
+        balance += calculateIntrest(balance);
+    }
 
 
 }

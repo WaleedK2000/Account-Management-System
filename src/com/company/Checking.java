@@ -44,5 +44,9 @@ public class Checking extends Account {
         return 0;
     }
 
+    public void chargeDeductions(){
+        balance -= calculateTax();
+    }
+
 }
 
