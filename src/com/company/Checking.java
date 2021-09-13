@@ -48,5 +48,10 @@ public class Checking extends Account {
         balance -= calculateTax();
     }
 
+    public void displayDetails(){
+        System.out.println("Account Type: Checking");
+        super.displayDetails();
+    }
+
 }
 

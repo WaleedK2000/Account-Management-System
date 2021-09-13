@@ -61,37 +61,46 @@ public class Main {
             return;
         }
         else{
-            System.out.println("--- Valid Account --- \n");
+            boolean exit = false;
 
-            System.out.println("1 ... Make Deposit");
-            System.out.println("2 ... Make Withdrawal");
-            System.out.println("3 ... Transfer Money");
-            System.out.println("4 ... Display Deduction");
+            while(exit) {
+                System.out.println("--- Valid Account --- \n");
 
-            Scanner red = new Scanner(System.in);
-            int choice = red.nextInt();
+                System.out.println("0 ... Back");
+                System.out.println("1 ... Make Deposit");
+                System.out.println("2 ... Make Withdrawal");
+                System.out.println("3 ... Transfer Money");
+                System.out.println("4 ... Display Deduction");
+                System.out.println("5 ... Display Account Details");
 
-            while(choice > 5 || choice < 1 ){
-                System.out.println("Try Again! ");
-                choice = red.nextInt();
-            }
+                Scanner red = new Scanner(System.in);
+                int choice = red.nextInt();
 
-            Account acc = account_list.get(acc_num);
+                while (choice > 5 || choice < 1) {
+                    System.out.println("Try Again! ");
+                    choice = red.nextInt();
+                }
 
-            switch(choice){
-                case 1:
-                    acc.makeDeposit();
-                    break;
-                case 2:
-                    acc.makeWithdrawal();
-                    break;
-                case 3:
+                Account acc = account_list.get(acc_num);
 
-                    break;
-                case 4:
-                    acc.displayDeduction();
-                    break;
+                switch (choice) {
+                    case 0:
+                        exit = true;
+                    case 1:
+                        acc.makeDeposit();
+                        break;
+                    case 2:
+                        acc.makeWithdrawal();
+                        break;
+                    case 3:
 
+                        break;
+                    case 4:
+                        acc.displayDeduction();
+                        break;
+                    case 5:
+                        acc.displayDetails();
+                }
 
             }
 

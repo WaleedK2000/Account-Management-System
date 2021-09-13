@@ -22,7 +22,6 @@ public class Saving extends Account {
     }
 
 
-
     public void makeWithdrawal(){
        float val = getTransactionVal("Withdrawal");
        makeWithdrawal(val);
@@ -43,5 +42,9 @@ public class Saving extends Account {
         balance += calculateIntrest(balance);
     }
 
+    public void displayDetails(){
+        System.out.println("Account Type: Saving");
+        super.displayDetails();
+    }
 
 }

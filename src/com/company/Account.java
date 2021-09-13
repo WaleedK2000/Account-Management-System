@@ -12,8 +12,15 @@ public class Account {
     float balance;
     boolean isSaving;
 
+    public void displayDetails(){
+        System.out.println("Name: " + first_name + " " + last_name);
+        System.out.println("Address: " + address);
+        System.out.println(account_num);
+        System.out.println(balance);
+    }
+
     public Account (String first, String last, String ph_num,  String address, int acc_num, float bal){
-        acc_created = new Date(2021,9,12);
+        acc_created = new Date(2021,Calendar.SEPTEMBER,12);
         setAll(first, last, ph_num, address, acc_num, bal);
     }
 
