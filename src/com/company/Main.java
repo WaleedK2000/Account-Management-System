@@ -52,29 +52,47 @@ public class Main {
         System.out.println("Enter Account Number");
         int a = account_list.size();
 
-        System.out.println("Enter Next Value");
+       // System.out.println("Enter Next Value");
         Scanner scan = new Scanner(System.in);
-        int acc_num = scan.nextInt();
+        int acc_num = scan.nextInt() - 1;
 
-        if(acc_num > a || acc_num < 1){
+        if(acc_num >= a || acc_num < 0){
             System.out.println("Invalid account num \n");
             return;
         }
         else{
             System.out.println("--- Valid Account --- \n");
-            Account acc = account_list.get(acc_num);
+
             System.out.println("1 ... Make Deposit");
             System.out.println("2 ... Make Withdrawal");
             System.out.println("3 ... Transfer Money");
-            System.out.println("4 ... Calculate Zakat");
-            System.out.println("5 ... Display Deduction");
+            System.out.println("4 ... Display Deduction");
 
             Scanner red = new Scanner(System.in);
             int choice = red.nextInt();
 
-            while(choice > 5 || choice< 1 ){
+            while(choice > 5 || choice < 1 ){
                 System.out.println("Try Again! ");
                 choice = red.nextInt();
+            }
+
+            Account acc = account_list.get(acc_num);
+
+            switch(choice){
+                case 1:
+                    acc.makeDeposit();
+                    break;
+                case 2:
+                    acc.makeWithdrawal();
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+                    acc.displayDeduction();
+                    break;
+
+
             }
 
         }

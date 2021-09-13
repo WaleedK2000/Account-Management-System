@@ -49,6 +49,14 @@ public class Account {
 
     }
 
+    public void makeDeposit(){
+
+    }
+
+    public void makeWithdrawal(){
+
+    }
+
     public void printStatement(){
         checkBalance();
     }
@@ -109,14 +117,17 @@ public class Account {
 
     protected float getTransactionVal(String type){
 
+        Scanner scan = new Scanner(System.in);
+
         System.out.println("\n _____________________________________ \n");
         System.out.println("Transaction Request \n");
         System.out.println("TYPE : ");
         System.out.println(type);
-        System.out.println("\n");
+        //System.out.println("\n");
         System.out.println("Please Enter Desired Amount : ");
+        return  scan.nextFloat();
 
-        return (float) 250.33;
+
     }
 
 }
