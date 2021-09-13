@@ -134,10 +134,10 @@ public class Account {
     public float chargeDeductions(){
         return 0;
     }
-        public void displayBalance(){
-            System.out.println("Account Holder: " + first_name + " " + last_name + " \n");
-            System.out.println("Balance: " + balance);
-        }
+    public void displayBalance(){
+        System.out.println("Account Holder: " + first_name + " " + last_name + " \n");
+        System.out.println("Balance: " + balance);
+    }
 
 
 }

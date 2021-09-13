@@ -16,12 +16,12 @@ public class Main {
             System.out.println("2 ... Login to an Account");
             System.out.println("3 ... Change Interest Rate");
             System.out.println("4 ... Charge Tax and Zakat");
-
+            System.out.println("5 ... View all Bank Accounts");
 
             Scanner scan = new Scanner(System.in);
             int input = scan.nextInt();
 
-            while(input <0 || input > 4){
+            while(input <0 || input > 5){
                 System.out.println("Invalid Input ... Please Try again");
                 input = scan.nextInt();
             }
@@ -45,10 +45,19 @@ public class Main {
                 case 4:
                     chargeDeductibles();
                     break;
+                case 5:
+                    viewAllAccounts();
             }
         }
 
 
+    }
+
+    private static void viewAllAccounts(){
+        for (Account account : account_list) {
+           account.displayDetails();
+            System.out.println("\n");
+        }
     }
 
 private static void   chargeDeductibles(){
@@ -86,7 +95,7 @@ private static void   chargeDeductibles(){
                 System.out.println("0 ... Back");
                 System.out.println("1 ... Make Deposit");
                 System.out.println("2 ... Make Withdrawal");
-                System.out.println("3 ... Transfer Money");
+                System.out.println("3 ... Transfer Money To Another Account");
                 System.out.println("4 ... Display Deduction");
                 System.out.println("5 ... Display Account Details");
                 System.out.println("6 ... Display Balance");
@@ -96,7 +105,7 @@ private static void   chargeDeductibles(){
                 Scanner red = new Scanner(System.in);
                 int choice = red.nextInt();
 
-                while (choice > 5 || choice < 1) {
+                while (choice > 6 || choice < 1) {
                     System.out.println("Try Again! ");
                     choice = red.nextInt();
                 }
@@ -114,6 +123,22 @@ private static void   chargeDeductibles(){
                         break;
                     case 3:
 
+
+                        System.out.println("Enter Account Number To Close");
+                        int acc_num_otr = scan.nextInt() - 1;
+
+                        while (acc_num_otr > account_list.size() || acc_num_otr < 0){
+                            System.out.println("Invalid .. Try Again");
+                            acc_num_otr = scan.nextInt();
+                        }
+                        System.out.println("Enter Amount to Transfer");
+                        float amt_trnsfr = scan.nextFloat();
+
+                        if(amt_trnsfr > acc.getBalance()){
+                            System.out.println("Insufficient Balance \n");
+                            return;
+                        }
+                        acc.transferAmount(account_list.get(acc_num_otr) , amt_trnsfr);
                         break;
                     case 4:
                         acc.displayDeduction();
