@@ -1,5 +1,12 @@
 package com.company;
 
+class InsufficientFundsException extends RuntimeException{
+    public InsufficientFundsException(String msg){
+        super(msg);
+    }
+}
+
+
 public class Checking extends Account {
 
     public Checking(){
@@ -8,22 +15,26 @@ public class Checking extends Account {
     }
 
     public Checking(String first, String last, String ph_num,  String address, int acc_num, float bal){
+
         super(first, last, ph_num, address, acc_num, bal);
-        this.isSaving=false;
+
     }
 
     public void makeWithdrawal(){
         float val = getTransactionVal("Withdrawal");
 
+
+        makeWithdrawal(val);
+    }
+
+    public void makeWithdrawal(float val){
         if (val > balance + 5000){
-            System.out.println("Insufficient Balance ... Exiting");
             return;
         }
-
         if( transactionsThisMonth() > 2 ){
             val += 10;
         }
-        makeWithdrawal(val);
+        super.makeWithdrawal(val);
     }
 
     public void makeDeposit(){
@@ -31,8 +42,7 @@ public class Checking extends Account {
         if( transactionsThisMonth() > 2 ){
             val -= 10;
         }
-
-        makeDeposit(val);
+        super.makeDeposit(val);
     }
 
     public float calculateTax(){
@@ -51,6 +61,11 @@ public class Checking extends Account {
     }
 
     public float chargeDeductions(){
+
+        if(balance <= 0){
+            return 0;
+        }
+
         float ret = calculateTax();
         balance -= ret;
         return ret;

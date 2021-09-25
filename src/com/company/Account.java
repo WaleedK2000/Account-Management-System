@@ -1,5 +1,8 @@
 package com.company;
-import java.util.*;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
 
 //This Class Manages Account Functions
 public class Account {
@@ -20,8 +23,20 @@ public class Account {
     }
 
     public Account (String first, String last, String ph_num,  String address, int acc_num, float bal){
-        acc_created = new Date(2021,Calendar.SEPTEMBER,12);
-        setAll(first, last, ph_num, address, acc_num, bal);
+
+        if(bal < 0){
+            throw new InsufficientFundsException("Balance Cannot be negative when opening a new account");
+        }
+        else if (bal == 0){
+            throw new InsufficientFundsException("Balance Cannot be 0 when opening a new account");
+        }
+        else{
+            acc_created = new Date(2021,Calendar.SEPTEMBER,12);
+            setAll(first, last, ph_num, address, acc_num, bal);
+            this.isSaving=false;
+        }
+
+
     }
 
     public void setAll(String first, String last, String ph_num,  String address, int acc_num, float bal){
@@ -44,6 +59,7 @@ public class Account {
         if( with_amt > 0){
             balance -= with_amt;
         }
+
     }
 
     public void makeDeposit(float a){
@@ -72,13 +88,8 @@ public class Account {
 
     }
 
-    public void displayDeduction(){
-        if(isSaving){
-            //Saving account
-        }
-        else{
-            //current account
-        }
+   public void displayDeduction(){
+
     }
 
 
@@ -141,3 +152,5 @@ public class Account {
 
 
 }
+
+

@@ -25,12 +25,15 @@ public class Saving extends Account {
     public void makeWithdrawal(){
        float val = getTransactionVal("Withdrawal");
 
-       if(val > balance){
-           System.out.println("Insufficient Balance ... Exiting");
-           return;
-       }
-
        makeWithdrawal(val);
+    }
+
+    public void makeWithdrawal(float amt){
+        if(amt > balance){
+            System.out.println("Insufficient Balance ... Exiting");
+            return;
+        }
+        super.makeWithdrawal(amt);
     }
 
     public float calculateIntrest( float rate ){
@@ -44,7 +47,7 @@ public class Saving extends Account {
     }
 
     public float chargeDeductions(){
-        float ret = calculateIntrest(balance) - calculateZakat();
+        float ret = calculateIntrest(1) - calculateZakat();
        balance += ret;
        return ret;
     }

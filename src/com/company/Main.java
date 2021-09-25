@@ -1,6 +1,11 @@
 package com.company;
 
-import java.util.*;
+import com.company.Account;
+import com.company.Checking;
+import com.company.Saving;
+
+import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -194,10 +199,10 @@ private static void   chargeDeductibles(){
         int acc_type = scan.nextInt();
 
         if(acc_type == 1){
-            account_list.add(new Saving(first_name,last_name,phone_num,address, new_acc_num,0));
+            account_list.add(new Saving(first_name,last_name,phone_num,address, new_acc_num,1));
         }
         else{
-            account_list.add(new Checking(first_name,last_name,phone_num,address, new_acc_num,0));
+            account_list.add(new Checking(first_name,last_name,phone_num,address, new_acc_num,1));
         }
         System.out.println("\n");
 
