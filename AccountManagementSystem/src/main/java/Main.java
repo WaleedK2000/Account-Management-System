@@ -1,8 +1,3 @@
-package com.company;
-
-import com.company.Account;
-import com.company.Checking;
-import com.company.Saving;
 
 import java.util.LinkedList;
 import java.util.Scanner;

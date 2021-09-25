@@ -1,5 +1,3 @@
-package com.company;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,6 +5,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class AccountTest {
 
+    
     Account test_account;
     private Object InsufficientFundsException;
 
